@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -10,6 +11,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { LeftMenuComponent } from './components/left-menu/left-menu.component';
 import { SectionSpaceComponent } from './components/section-space/section-space.component';
+
 library.add(fas);
 
 
@@ -19,10 +21,11 @@ library.add(fas);
     HeaderComponent,
     FooterComponent,
     LeftMenuComponent,
-    SectionSpaceComponent,
+    SectionSpaceComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FontAwesomeModule
   ],
   providers: [],

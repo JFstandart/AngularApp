@@ -1,8 +1,39 @@
-<div class="column is-6">
-  <section class="section">
-    <h1 class="title">Section</h1>
-    <h2 class="subtitle">
-      A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
-    </h2>
-  </section>
-</div>
+<div class="columns is-multiline">
+  <div class="column is-one-third" *ngFor="let repository of repositories">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          {{repository.full_name}}
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img [src]="repository.owner.avatar_url" [alt]="repository.owner.login">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-5">{{repository.name}}</p>
+            <p class="subtitle is-6">@{{repository.owner.login}}</p>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="content">
+            {{repository.description}}
+          </div>
+          <p class="subtitle">
+            Language: {{repository.language}}
+          </p>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span class="icon has-text-info">
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </span> Issues: {{repository.open_issues}}</p>
+          <p class="card-footer-item">Stars: {{repository.stargazers_count}}</p>
+          <a [href]="repository.html_url" target="_blank" class="card-footer-item">Open on Github</a>
+        </footer>
+      </div>
+    </div>
+  </div>
